@@ -119,21 +119,21 @@ description: "Task list for Daily Labour Finder (Laravel MVP)"
 
 ### Implementation
 
-- [ ] T009 Build admin route group + navigation shell (S) — `routes/web.php`, `resources/views/admin/layout.blade.php`
+- [x] T009 Build admin route group + navigation shell (S) — `routes/web.php`, `resources/views/admin/layout.blade.php`
   - **Steps**:
     - Add `/admin` prefixed routes behind `auth` + `admin` middleware.
     - Create a simple admin layout with mobile-first nav (Labourers, Availability Today).
   - **Acceptance Criteria**:
     - Admin pages share consistent layout; nav works on mobile width.
 
-- [ ] T010 Implement admin labourer list + search/pagination (M) — `app/Http/Controllers/Admin/LabourerController.php`, `resources/views/admin/labourers/index.blade.php`
+- [x] T010 Implement admin labourer list + search/pagination (M) — `app/Http/Controllers/Admin/LabourerController.php`, `resources/views/admin/labourers/index.blade.php`
   - **Steps**:
     - Index page with search by name/phone, filter by area, paginate.
     - Show active/inactive state.
   - **Acceptance Criteria**:
     - Admin can find a labourer quickly with search/filter; page loads fast with pagination.
 
-- [ ] T011 Implement admin labourer create/edit forms (M) — `resources/views/admin/labourers/{create,edit}.blade.php`
+- [x] T011 Implement admin labourer create/edit forms (M) — `resources/views/admin/labourers/{create,edit}.blade.php`
   - **Steps**:
     - Form fields: name, phone, area, skills multi-select, active toggle, photo upload.
     - Mobile-first layout with large tap targets and accessible labels.
@@ -141,14 +141,14 @@ description: "Task list for Daily Labour Finder (Laravel MVP)"
     - Admin can create and update a labourer successfully.
     - Validation errors are readable and announced near fields.
 
-- [ ] T012 Implement labourer create/update handlers incl. skills pivot sync (M) — `app/Http/Controllers/Admin/LabourerController.php`
+- [x] T012 Implement labourer create/update handlers incl. skills pivot sync (M) — `app/Http/Controllers/Admin/LabourerController.php`
   - **Steps**:
     - Use Form Requests from T008.
     - Save labourer, sync skills pivot.
   - **Acceptance Criteria**:
     - Labourer persists with correct area and skills.
 
-- [ ] T013 Implement labourer photo upload + storage path persistence (M) — `app/Http/Controllers/Admin/LabourerController.php`
+- [x] T013 Implement labourer photo upload + storage path persistence (M) — `app/Http/Controllers/Admin/LabourerController.php`
   - **Steps**:
     - Accept image upload; store to `public` disk (e.g., `labourers/` folder).
     - Save `photo_path` on labourer.
@@ -156,7 +156,7 @@ description: "Task list for Daily Labour Finder (Laravel MVP)"
   - **Acceptance Criteria**:
     - Uploaded photo is visible on admin edit page and public browse cards.
 
-- [ ] T014 Add minimal admin management for Areas & Skills (M) — `app/Http/Controllers/Admin/{AreaController,SkillController}.php`, `resources/views/admin/{areas,skills}/*`
+- [x] T014 Add minimal admin management for Areas & Skills (M) — `app/Http/Controllers/Admin/{AreaController,SkillController}.php`, `resources/views/admin/{areas,skills}/*`
   - **Steps**:
     - Keep MVP minimal: list + create + deactivate (optional edit).
     - Ensure uniqueness constraints are enforced with user-friendly errors.
