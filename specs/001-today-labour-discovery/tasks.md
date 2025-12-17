@@ -35,7 +35,7 @@ description: "Task list for Daily Labour Finder (Laravel MVP)"
 
 **Purpose**: Laravel project initialization and baseline tooling
 
-- [ ] T001 Initialize Laravel 11 project at repo root (S) — `./`
+- [x] T001 Initialize Laravel 11 project at repo root (S) — `./`
   - **Steps**:
     - Create Laravel app in repo root (per `quickstart.md`).
     - Create `.env` from `.env.example`; set app key.
@@ -44,7 +44,7 @@ description: "Task list for Daily Labour Finder (Laravel MVP)"
     - `php artisan --version` works.
     - `php artisan serve` runs without errors.
 
-- [ ] T002 Install Breeze (Blade) and build assets baseline (M) — `composer.json`, `resources/`, `routes/`
+- [x] T002 Install Breeze (Blade) and build assets baseline (M) — `composer.json`, `resources/`, `routes/`
   - **Steps**:
     - Install Laravel Breeze (Blade) and run required installers.
     - Install npm deps and run build/dev once.
@@ -52,7 +52,7 @@ description: "Task list for Daily Labour Finder (Laravel MVP)"
     - Login/register views are generated.
     - Home route renders with Tailwind assets loading.
 
-- [ ] T003 [P] Configure public storage for photos (S) — `config/filesystems.php`, `storage/app/public/`
+- [x] T003 [P] Configure public storage for photos (S) — `config/filesystems.php`, `storage/app/public/`
   - **Steps**:
     - Ensure `public` disk is configured.
     - Run `php artisan storage:link` (document in quickstart).
