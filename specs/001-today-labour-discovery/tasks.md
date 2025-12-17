@@ -67,7 +67,7 @@ description: "Task list for Daily Labour Finder (Laravel MVP)"
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T004 Create migrations for Areas, Skills, Labourers, pivot, Availability (M) — `database/migrations/*.php`
+- [x] T004 Create migrations for Areas, Skills, Labourers, pivot, Availability (M) — `database/migrations/*.php`
   - **Steps**:
     - Create tables per `data-model.md` (areas, skills, labourers, labourer_skill, availabilities).
     - Add indexes/uniques (notably `availabilities(labourer_id, date)` unique).
@@ -75,14 +75,14 @@ description: "Task list for Daily Labour Finder (Laravel MVP)"
     - `php artisan migrate:fresh` completes.
     - Schema matches `data-model.md` entities and indexes.
 
-- [ ] T005 Add `is_admin` flag to users + default admin seeder (M) — `database/migrations/*add_is_admin*`, `database/seeders/DatabaseSeeder.php`
+- [x] T005 Add `is_admin` flag to users + default admin seeder (M) — `database/migrations/*add_is_admin*`, `database/seeders/DatabaseSeeder.php`
   - **Steps**:
     - Migration adds boolean `is_admin` to `users`.
     - Seed a single admin user with known email/password (MVP dev only; document in `quickstart.md`).
   - **Acceptance Criteria**:
     - Admin can log in with seeded credentials in local environment.
 
-- [ ] T006 Implement admin-only middleware/gate (S) — `app/Http/Middleware/AdminOnly.php`, `app/Http/Kernel.php`
+- [x] T006 Implement admin-only middleware/gate (S) — `app/Http/Middleware/AdminOnly.php`, `app/Http/Kernel.php`
   - **Steps**:
     - Create middleware that checks `auth()->user()?->is_admin`.
     - Register middleware and apply to admin route group.
@@ -90,7 +90,7 @@ description: "Task list for Daily Labour Finder (Laravel MVP)"
     - Non-auth users are redirected to login for `/admin/*`.
     - Auth non-admin users get 403 (or redirected) for `/admin/*`.
 
-- [ ] T007 Create Eloquent models + relationships (M) — `app/Models/{Area,Skill,Labourer,Availability}.php`
+- [x] T007 Create Eloquent models + relationships (M) — `app/Models/{Area,Skill,Labourer,Availability}.php`
   - **Steps**:
     - Add fillable/casts and relationships:
       - `Area hasMany Labourer`
@@ -100,7 +100,7 @@ description: "Task list for Daily Labour Finder (Laravel MVP)"
   - **Acceptance Criteria**:
     - Tinker can create records and traverse relationships without errors.
 
-- [ ] T008 Add form request validation for admin inputs (M) — `app/Http/Requests/*`
+- [x] T008 Add form request validation for admin inputs (M) — `app/Http/Requests/*`
   - **Steps**:
     - Create `StoreLabourerRequest`/`UpdateLabourerRequest` (name, phone, area, skills, photo).
     - Validate `phone_e164` as a string pattern (MVP: simple E.164-ish rule).
