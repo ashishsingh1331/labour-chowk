@@ -5,8 +5,8 @@ description: "Task list for Daily Labour Finder (Laravel MVP)"
 
 # Tasks: Daily Labour Finder (Laravel MVP)
 
-**Input**: Design documents from `/specs/001-today-labour-discovery/`  
-**Prerequisites**: `plan.md` (required), `spec.md` (required), `research.md`, `data-model.md`, `contracts/`, `quickstart.md`  
+**Input**: Design documents from `/specs/001-today-labour-discovery/`
+**Prerequisites**: `plan.md` (required), `spec.md` (required), `research.md`, `data-model.md`, `contracts/`, `quickstart.md`
 
 **Tests**: Not included (explicitly excluded by request).
 
