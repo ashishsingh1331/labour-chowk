@@ -173,7 +173,7 @@ description: "Task list for Daily Labour Finder (Laravel MVP)"
 
 ### Implementation
 
-- [ ] T015 Implement public browse route + controller query (M) — `routes/web.php`, `app/Http/Controllers/BrowseController.php`
+- [x] T015 Implement public browse route + controller query (M) — `routes/web.php`, `app/Http/Controllers/BrowseController.php`
   - **Steps**:
     - `GET /` reads `area`, optional `skills[]`, optional `q`.
     - Query labourers: active, in selected area, has availability row for today.
@@ -182,7 +182,7 @@ description: "Task list for Daily Labour Finder (Laravel MVP)"
     - Results match filters and show only “today available” labourers.
     - Empty state when no results.
 
-- [ ] T016 Build mobile-first browse UI (M) — `resources/views/browse/index.blade.php`, `resources/css/app.css`
+- [x] T016 Build mobile-first browse UI (M) — `resources/views/browse/index.blade.php`, `resources/css/app.css`
   - **Steps**:
     - Area selector (required), skills multi-select, search input.
     - Render labourer cards with photo, name, skills, and “Call” CTA.
@@ -191,7 +191,7 @@ description: "Task list for Daily Labour Finder (Laravel MVP)"
     - No horizontal scrolling on mobile widths.
     - “Call” is one tap and uses `tel:` link with accessible label.
 
-- [ ] T017 Add lightweight performance helpers (S) — `app/Http/Controllers/BrowseController.php`
+- [x] T017 Add lightweight performance helpers (S) — `app/Http/Controllers/BrowseController.php`
   - **Steps**:
     - Add indexes already in migrations; ensure eager loading for skills to avoid N+1.
     - Cache areas/skills lists for the browse filters (simple cache key).
@@ -206,7 +206,7 @@ description: "Task list for Daily Labour Finder (Laravel MVP)"
 
 **Independent Test**: Admin marks a labourer available today; labourer appears on public page for that area.
 
-- [ ] T018 Implement admin availability dashboard UI (M) — `app/Http/Controllers/Admin/AvailabilityTodayController.php`, `resources/views/admin/availability/today.blade.php`
+- [x] T018 Implement admin availability dashboard UI (M) — `app/Http/Controllers/Admin/AvailabilityTodayController.php`, `resources/views/admin/availability/today.blade.php`
   - **Steps**:
     - Show labourers filtered by area/skill and current availability state for today.
     - Provide bulk toggle controls (checkbox list + “Mark Available” / “Remove”).
@@ -214,7 +214,7 @@ description: "Task list for Daily Labour Finder (Laravel MVP)"
     - Admin can change availability for multiple labourers in one action.
     - UI works well on mobile (scrollable list, sticky action bar).
 
-- [ ] T019 Implement availability upsert logic (M) — `app/Http/Controllers/Admin/AvailabilityTodayController.php`, `app/Models/Availability.php`
+- [x] T019 Implement availability upsert logic (M) — `app/Http/Controllers/Admin/AvailabilityTodayController.php`, `app/Models/Availability.php`
   - **Steps**:
     - For selected labourers: upsert availability row for today.
     - For removals: delete today’s row (or set status to unavailable).
@@ -222,7 +222,7 @@ description: "Task list for Daily Labour Finder (Laravel MVP)"
     - Availability updates reflect immediately in browse query.
     - No duplicates for same labourer/date.
 
-- [ ] T020 Implement daily reset strategy (S) — `app/Console/Kernel.php`, `app/Console/Commands/PruneOldAvailability.php`
+- [x] T020 Implement daily reset strategy (S) — `routes/console.php`, `app/Console/Commands/PruneOldAvailability.php`
   - **Steps**:
     - Choose MVP approach: date-keyed rows mean “today” naturally resets.
     - Add optional scheduled command to prune rows older than N days (e.g., 30).
