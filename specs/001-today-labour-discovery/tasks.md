@@ -278,7 +278,7 @@ description: "Task list for Daily Labour Finder (Laravel MVP)"
   - **Acceptance Criteria**:
     - One command `php artisan migrate:fresh --seed` yields a usable demo.
 
-- [ ] T027 Mobile-first + accessibility polish pass (S) — `resources/views/**/*.blade.php`, `resources/css/app.css`
+- [x] T027 Mobile-first + accessibility polish pass (S) — `resources/views/**/*.blade.php`, `resources/css/app.css`
   - **Steps**:
     - Ensure readable typography, spacing, and tap targets.
     - Verify keyboard focus states and labels for form controls.
@@ -286,7 +286,7 @@ description: "Task list for Daily Labour Finder (Laravel MVP)"
   - **Acceptance Criteria**:
     - Meets constitution gates for mobile-first + accessibility.
 
-- [ ] T028 Scope + security hardening pass (S) — `routes/web.php`, `app/Http/Middleware/*`
+- [x] T028 Scope + security hardening pass (S) — `routes/web.php`, `app/Http/Middleware/*`
   - **Steps**:
     - Confirm no payments/ratings/chat/GPS features slipped in.
     - Ensure admin routes are protected; disable register route if not desired for MVP.
