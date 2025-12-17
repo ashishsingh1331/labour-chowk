@@ -1,7 +1,7 @@
 # Research & Decisions: Daily Labour Finder (MVP)
 
-**Date**: 2025-12-17  
-**Branch**: `001-today-labour-discovery`  
+**Date**: 2025-12-17
+**Branch**: `001-today-labour-discovery`
 **Goal**: Resolve implementation choices required for the Laravel MVP plan.
 
 ## Decision: Laravel version + baseline stack

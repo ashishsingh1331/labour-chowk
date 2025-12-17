@@ -1,6 +1,6 @@
 # Implementation Plan: Daily Labour Finder (MVP)
 
-**Branch**: `001-today-labour-discovery` | **Date**: 2025-12-17 | **Spec**: `./spec.md`  
+**Branch**: `001-today-labour-discovery` | **Date**: 2025-12-17 | **Spec**: `./spec.md`
 **Input**: Feature specification from `/specs/001-today-labour-discovery/spec.md` + planning constraints from user
 
 **Note**: This template is filled in by the `/speckit.plan` command.
@@ -15,20 +15,20 @@ synthetic photo pool for fast iteration.
 
 ## Technical Context
 
-**Language/Version**: PHP 8.3 + Laravel 11.x  
-**Primary Dependencies**: Laravel Breeze (Blade), Tailwind CSS, Vite  
-**Storage**: MySQL (prod), SQLite (local/dev ok) + Laravel filesystem (public disk) for photos  
-**Testing**: PHPUnit + Laravel feature tests  
-**Target Platform**: Server-rendered web app (mobile-first responsive UI)  
-**Project Type**: Web application (single Laravel app at repo root)  
+**Language/Version**: PHP 8.3 + Laravel 11.x
+**Primary Dependencies**: Laravel Breeze (Blade), Tailwind CSS, Vite
+**Storage**: MySQL (prod), SQLite (local/dev ok) + Laravel filesystem (public disk) for photos
+**Testing**: PHPUnit + Laravel feature tests
+**Target Platform**: Server-rendered web app (mobile-first responsive UI)
+**Project Type**: Web application (single Laravel app at repo root)
 **Performance Goals**:
 - Hirer browse list loads in <2s for p95 on typical mobile connections (cached where practical)
-- Admin pages stay responsive with pagination/search  
+- Admin pages stay responsive with pagination/search
 **Constraints**:
 - MVP scope: no payments, no ratings, no chat, no GPS tracking
 - Minimal steps UX; high contrast/readable typography
 - Use seeders + synthetic photo pool for demo data
-- Admin-managed availability for MVP (note: differs from spec’s labourer self-toggle)  
+- Admin-managed availability for MVP (note: differs from spec’s labourer self-toggle)
 **Scale/Scope**: Small MVP; hundreds–low-thousands of labourers; a few areas initially
 
 ## Constitution Check

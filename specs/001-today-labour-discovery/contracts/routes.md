@@ -1,12 +1,12 @@
 # Route Contracts (Web): Daily Labour Finder (MVP)
 
-**Date**: 2025-12-17  
+**Date**: 2025-12-17
 **Branch**: `001-today-labour-discovery`
 
 ## Public (hirer) browsing
 
-- `GET /`  
-  **Purpose**: Browse labourers available today.  
+- `GET /`
+  **Purpose**: Browse labourers available today.
   **Query params**:
   - `area` (required): area id
   - `skills[]` (optional): skill ids
@@ -15,8 +15,8 @@
 
 ## Admin auth
 
-- `GET /admin/login`  
-- `POST /admin/login`  
+- `GET /admin/login`
+- `POST /admin/login`
 - `POST /admin/logout`
 
 ## Admin: labourers CRUD
@@ -31,12 +31,12 @@
 ## Admin: availability dashboard (today)
 
 - `GET /admin/availability/today`
-- `POST /admin/availability/today`  
+- `POST /admin/availability/today`
   **Purpose**: Bulk update today’s availability for selected labourers.
 
 ## Optional (future): call logging endpoint
 
 If call logging is added later:
-- `POST /call-logs` (rate-limited)  
+- `POST /call-logs` (rate-limited)
   **Purpose**: Record “call initiated” events without storing sensitive content.
 

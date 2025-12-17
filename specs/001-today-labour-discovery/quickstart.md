@@ -1,6 +1,6 @@
 # Quickstart: Daily Labour Finder (Laravel MVP)
 
-**Date**: 2025-12-17  
+**Date**: 2025-12-17
 **Branch**: `001-today-labour-discovery`
 
 ## Local setup

@@ -1,6 +1,6 @@
 # Data Model: Daily Labour Finder (MVP)
 
-**Date**: 2025-12-17  
+**Date**: 2025-12-17
 **Branch**: `001-today-labour-discovery`
 
 ## Entities
