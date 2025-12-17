@@ -237,41 +237,41 @@ description: "Task list for Daily Labour Finder (Laravel MVP)"
 
 **Purpose**: Demo-ready dataset, synthetic photos, UI polish, and gate validation
 
-- [ ] T021 Create factories for Area/Skill/Labourer/Availability (M) — `database/factories/*.php`
+- [x] T021 Create factories for Area/Skill/Labourer/Availability (M) — `database/factories/*.php`
   - **Steps**:
     - Implement factories with sensible fake values.
     - Ensure labourer phone values are unique-ish and valid-ish for E.164 format.
   - **Acceptance Criteria**:
     - Factories can generate records without violating constraints.
 
-- [ ] T022 Implement seeders for areas + skills (S) — `database/seeders/{AreaSeeder,SkillSeeder}.php`
+- [x] T022 Implement seeders for areas + skills (S) — `database/seeders/{AreaSeeder,SkillSeeder}.php`
   - **Steps**:
     - Seed a small curated list + a few extra fakes.
     - Mark all active by default.
   - **Acceptance Criteria**:
     - Areas/skills appear in filters and admin pages.
 
-- [ ] T023 Add synthetic photo pool to repo + seeder copy logic (M) — `database/seeders/assets/labourers/*`, `database/seeders/Concerns/SeedsPhotos.php`
+- [x] T023 Add synthetic photo pool to repo + seeder copy logic (M) — `database/seeders/assets/labourers/*`, `database/seeders/Concerns/SeedsPhotos.php`
   - **Steps**:
     - Add a small set of synthetic/placeholder images under a seed assets folder.
     - Write helper that copies a random image into `storage/app/public/labourers/` and returns the path.
   - **Acceptance Criteria**:
     - After seeding, labourers have photos that render via `/storage/...`.
 
-- [ ] T024 Implement LabourerSeeder: assign areas, skills, photo, and active flag (M) — `database/seeders/LabourerSeeder.php`
+- [x] T024 Implement LabourerSeeder: assign areas, skills, photo, and active flag (M) — `database/seeders/LabourerSeeder.php`
   - **Steps**:
     - Create N labourers; assign random area and 1–3 skills.
     - Assign `photo_path` using the photo pool helper.
   - **Acceptance Criteria**:
     - Seeded labourers show up in admin list with photos and skills.
 
-- [ ] T025 Implement AvailabilitySeeder for “today” (S) — `database/seeders/AvailabilitySeeder.php`
+- [x] T025 Implement AvailabilitySeeder for “today” (S) — `database/seeders/AvailabilitySeeder.php`
   - **Steps**:
     - Create availability rows for “today” for a subset of labourers per area.
   - **Acceptance Criteria**:
     - Public browse shows at least some labourers for each seeded area (where intended).
 
-- [ ] T026 Wire seeders into DatabaseSeeder + document seeded admin credentials (S) — `database/seeders/DatabaseSeeder.php`, `specs/001-today-labour-discovery/quickstart.md`
+- [x] T026 Wire seeders into DatabaseSeeder + document seeded admin credentials (S) — `database/seeders/DatabaseSeeder.php`, `specs/001-today-labour-discovery/quickstart.md`
   - **Steps**:
     - Call seeders in order: areas/skills → labourers → availability → admin user.
     - Ensure idempotent-ish behavior for local dev (migrate:fresh --seed).

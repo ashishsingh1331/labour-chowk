@@ -24,5 +24,12 @@ class DatabaseSeeder extends Seeder
                 'is_admin' => true,
             ]
         );
+
+        $this->call([
+            AreaSeeder::class,
+            SkillSeeder::class,
+            LabourerSeeder::class,
+            AvailabilitySeeder::class,
+        ]);
     }
 }
