@@ -10,6 +10,13 @@ description: "Task list template for feature implementation"
 
 **Tests**: The examples below include test tasks. Tests are OPTIONAL - only include them if explicitly requested in the feature specification.
 
+**Constitution Gates (always include tasks/checkpoints)**:
+- **Mobile-first**: verify core flow on a small screen.
+- **Accessibility**: readable fonts, high contrast, focus states, minimal steps.
+- **Scope**: confirm no payments, no ratings, no chat, no GPS tracking.
+- **Onboarding**: admin-managed onboarding steps and audit trail.
+- **Performance**: define budgets + validate (e.g., Lighthouse/timings).
+
 **Organization**: Tasks are grouped by user story to enable independent implementation and testing of each story.
 
 ## Format: `[ID] [P?] [Story] Description`
@@ -150,6 +157,10 @@ Examples of foundational tasks (adjust based on your project):
 
 **Purpose**: Improvements that affect multiple user stories
 
+- [ ] TXXX [P] Mobile-first UX validation (small-screen layout check)
+- [ ] TXXX [P] Accessibility pass (contrast, labels, focus states, keyboard)
+- [ ] TXXX [P] Scope validation (explicitly confirm no payments/ratings/chat/GPS)
+- [ ] TXXX [P] Admin onboarding UX + audit trail verification
 - [ ] TXXX [P] Documentation updates in docs/
 - [ ] TXXX Code cleanup and refactoring
 - [ ] TXXX Performance optimization across all stories

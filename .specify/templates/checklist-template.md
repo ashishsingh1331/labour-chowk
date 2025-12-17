@@ -20,17 +20,17 @@
   ============================================================================
 -->
 
-## [Category 1]
+## Constitution Gates (must pass)
 
-- [ ] CHK001 First checklist item with clear action
-- [ ] CHK002 Second checklist item
-- [ ] CHK003 Third checklist item
+- [ ] CHK001 Mobile-first: core flow works on small screens without horizontal scrolling
+- [ ] CHK002 Accessibility: readable fonts, high contrast, focus states, minimal steps
+- [ ] CHK003 Scope: confirmed no payments, no ratings, no chat, no GPS tracking
 
-## [Category 2]
+## Delivery Quality
 
-- [ ] CHK004 Another category item
-- [ ] CHK005 Item with specific criteria
-- [ ] CHK006 Final item in this category
+- [ ] CHK004 Admin onboarding: workflow defined and admin actions are auditable
+- [ ] CHK005 Performance: budgets defined and validated (tool/measurement recorded)
+- [ ] CHK006 Documentation: user-facing steps updated where applicable
 
 ## Notes
 

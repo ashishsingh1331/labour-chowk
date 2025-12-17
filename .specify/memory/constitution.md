@@ -1,50 +1,95 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# Labour Chowk Constitution
+<!--
+Sync Impact Report
+- Version change: template → 0.1.0 (first concrete constitution; prior file was an unfilled template)
+- Modified principles: N/A (template placeholders → defined principles)
+- Added sections: Product Scope & Non-Goals; Delivery & Quality Gates
+- Removed sections: N/A
+- Templates requiring updates:
+  - ✅ `.specify/templates/plan-template.md`
+  - ✅ `.specify/templates/spec-template.md`
+  - ✅ `.specify/templates/tasks-template.md`
+  - ✅ `.specify/templates/checklist-template.md`
+- Deferred items:
+  - TODO(RATIFICATION_DATE): original adoption date unknown; set this once confirmed
+-->
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### 1) Mobile-First by Default
+- The primary UX MUST work end-to-end on small screens without horizontal scrolling.
+- All critical flows MUST be usable with one hand and minimal typing where possible.
+- Desktop layouts MAY exist, but MUST NOT be required to complete core tasks.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+**Rationale**: Most users will use the product on mobile; optimize for that reality.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### 2) Accessibility is a Release Gate
+- Text MUST be readable: use legible fonts, adequate line-height, and avoid dense blocks.
+- UI MUST use high contrast and clear focus states.
+- Flows MUST minimize steps and cognitive load (prefer defaults, progressive disclosure).
+- Interactive elements MUST be reachable via keyboard and have accessible names/labels.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+**Rationale**: If users can’t read or operate the UI, the feature does not exist.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### 3) Tight Scope (Non-Goals are Binding)
+- The product MUST NOT implement: payments, ratings, chat, or GPS tracking.
+- If a feature request implies any non-goal, the default response is “no” unless the
+  constitution is amended first.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+**Rationale**: Scope discipline keeps delivery fast and reduces privacy/legal risk.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### 4) Admin-Managed Onboarding
+- User onboarding MUST be controlled by admins (creation/invite/approval) rather than
+  self-serve registration by default.
+- Any self-serve entry points (if added later) MUST be explicitly approved via a
+  constitution amendment.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+**Rationale**: Operational control and trust are essential for early-stage rollout.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### 5) Performance is a Feature
+- Core screens MUST feel fast; avoid heavy dependencies and unnecessary round-trips.
+- New UI work MUST meet basic performance budgets defined in each feature plan
+  (e.g., interaction latency, page load time, bundle size).
+
+**Rationale**: Slow mobile UX is unusable UX.
+
+## Product Scope & Non-Goals
+
+**In scope**: A simple, admin-operated system with a mobile-first, accessible UI.
+
+**Hard non-goals (do not build)**:
+- Payments (subscriptions, wallets, payouts, billing)
+- Ratings/reviews
+- Chat/messaging
+- GPS tracking / location tracking
+
+**Privacy stance**:
+- Collect the minimum data needed for the user journey; avoid sensitive data unless
+  explicitly required and justified in the spec.
+
+## Delivery & Quality Gates
+
+- **Accessibility gate**: Each feature spec MUST include acceptance criteria covering:
+  readable typography, contrast, focus order, and minimal-step completion.
+- **Performance gate**: Each feature plan MUST define measurable budgets and a quick
+  way to validate them (local profiling, Lighthouse, simple timing checks, etc.).
+- **Scope gate**: Each feature spec MUST restate non-goals and confirm no hidden
+  requirements introduce payments/ratings/chat/GPS.
+- **Admin onboarding gate**: Features that create users or grant access MUST specify
+  the admin workflow and the audit trail required (who did what, when).
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+- This constitution is the source of truth for product scope and delivery gates.
+- **Amendment process**:
+  - Propose changes in writing (what changes, why, and the impact on scope/risk).
+  - Bump version using semantic versioning:
+    - MAJOR: changes to non-goals, onboarding control, or removal/weakening of gates
+    - MINOR: new principle/section or material expansion of existing guidance
+    - PATCH: clarifications/typos with no semantic behavior change
+  - Record `Last Amended` as the date of the approved change.
+- **Compliance expectation**:
+  - Specs/plans/tasks MUST include a “Constitution Check” that confirms compliance
+    or documents approved violations with rationale.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 0.1.0 | **Ratified**: TODO(RATIFICATION_DATE): original adoption date unknown | **Last Amended**: 2025-12-17
