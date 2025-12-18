@@ -13,21 +13,21 @@
 
         <div class="flex items-center justify-between gap-2">
             <button type="submit" class="rounded bg-gray-900 px-4 py-2 text-sm font-medium text-white">
-                Save
-            </button>
-            <button type="submit"
-                    form="delete-labourer"
-                    class="text-sm font-medium text-red-700 underline">
-                Delete
+                Save changes
             </button>
         </div>
-
-        <form id="delete-labourer" method="POST" action="{{ route('admin.labourers.destroy', $labourer) }}"
-              onsubmit="return confirm('Delete this labourer?');">
-                @csrf
-                @method('DELETE')
-        </form>
     </form>
+
+    <div class="mt-6 pt-6 border-t">
+        <form method="POST" action="{{ route('admin.labourers.destroy', $labourer) }}"
+              onsubmit="return confirm('Are you sure you want to delete this labourer? This action cannot be undone.');">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="text-sm font-medium text-red-700 underline">
+                Delete labourer
+            </button>
+        </form>
+    </div>
 </x-admin-layout>
 
 

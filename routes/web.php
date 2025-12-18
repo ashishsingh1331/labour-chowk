@@ -8,7 +8,11 @@ use App\Http\Controllers\Admin\SkillController;
 use App\Http\Controllers\Admin\AvailabilityTodayController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [BrowseController::class, 'index'])->name('browse');
+Route::get('/', function () {
+    return view('welcome');
+})->name('home');
+
+Route::get('/browse', [BrowseController::class, 'index'])->name('browse');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

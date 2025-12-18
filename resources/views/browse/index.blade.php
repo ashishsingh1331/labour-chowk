@@ -61,6 +61,7 @@
                 Show available today
             </button>
             <a href="{{ route('browse') }}" class="text-sm underline text-gray-700">Reset</a>
+            <a href="{{ route('home') }}" class="text-sm underline text-gray-700">Home</a>
         </div>
     </form>
 

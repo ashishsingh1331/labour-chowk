@@ -24,10 +24,8 @@ class AvailabilitySeeder extends Seeder
             return;
         }
 
-        // Mark ~40% labourers available today.
-        $sample = $labourers->random((int) max(1, floor($labourers->count() * 0.4)));
-
-        foreach ($sample as $labourer) {
+        // Mark all active labourers as available today by default.
+        foreach ($labourers as $labourer) {
             Availability::query()->updateOrCreate(
                 ['labourer_id' => $labourer->id, 'date' => $today],
                 ['status' => 'available']
