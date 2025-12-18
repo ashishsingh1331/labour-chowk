@@ -1,7 +1,7 @@
 # Technical Knowledge Transfer - Labour Chowk
 
-**Target Audience**: Developers joining the project  
-**Read Time**: 5-10 minutes  
+**Target Audience**: Developers joining the project
+**Read Time**: 5-10 minutes
 **Last Updated**: 2025-12-17
 
 ---
@@ -19,7 +19,7 @@
 ```
 ┌─────────────────────────────────────────────────────────┐
 │                    Public Routes                         │
-│  / (welcome)  /browse  /login                            │
+│  / (welcome)  /browse  /                             │
 └─────────────────────────────────────────────────────────┘
                           │
                           ▼
@@ -258,7 +258,7 @@ if (!$user->is_admin) {
 Labourer::with(['area', 'skills', 'availabilities'])->get();
 
 // Query availability for today
-->whereHas('availabilities', fn($q) => 
+->whereHas('availabilities', fn($q) =>
     $q->whereDate('date', $today)->where('status', 'available')
 )
 ```

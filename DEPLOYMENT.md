@@ -25,14 +25,14 @@
    APP_DEBUG=false
    APP_URL=https://your-app-name.onrender.com
    APP_KEY=base64:... (generate with: php artisan key:generate --show)
-   
+
    DB_CONNECTION=mysql
    DB_HOST=your-db-host
    DB_PORT=3306
    DB_DATABASE=your-db-name
    DB_USERNAME=your-db-user
    DB_PASSWORD=your-db-password
-   
+
    LOG_CHANNEL=stderr
    LOG_LEVEL=error
    ```

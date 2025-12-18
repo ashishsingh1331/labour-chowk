@@ -25,7 +25,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <p class="mb-4">{{ __("You're logged in!") }}</p>
-                    
+
                     @if (Auth::user()->is_admin ?? false)
                         <div class="mt-4 space-y-2">
                             <p class="text-sm font-medium text-gray-700">Admin Quick Links:</p>
