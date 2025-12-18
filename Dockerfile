@@ -30,20 +30,9 @@ WORKDIR /var/www/html
 # Copy composer files first (for better caching)
 COPY composer.json composer.lock* ./
 
-# Copy minimal app files needed for composer scripts
-COPY app/ app/
-COPY bootstrap/ bootstrap/
-COPY config/ config/
-COPY database/ database/
-COPY routes/ routes/
-COPY artisan ./
-
-# Create .env placeholder (composer scripts might need it)
-RUN touch .env
-
-# Install PHP dependencies (no dev dependencies for production)
-# Scripts will run and discover Laravel packages
-RUN composer install --no-dev --no-interaction --optimize-autoloader --prefer-dist
+# Install PHP dependencies without scripts (scripts need full app context)
+# We'll run package discovery manually after copying all files
+RUN composer install --no-dev --no-interaction --optimize-autoloader --prefer-dist --no-scripts
 
 # Copy package files
 COPY package.json package-lock.json* ./
@@ -53,6 +42,16 @@ RUN npm ci
 
 # Copy remaining application files
 COPY . .
+
+# Create minimal .env for artisan commands (with dummy values)
+RUN echo "APP_NAME=Laravel" > .env && \
+    echo "APP_ENV=local" >> .env && \
+    echo "APP_KEY=" >> .env && \
+    echo "APP_DEBUG=false" >> .env && \
+    echo "APP_URL=http://localhost" >> .env
+
+# Run Laravel package discovery manually (composer scripts were skipped)
+RUN php artisan package:discover --ansi || echo "Package discovery skipped (non-fatal)"
 
 # Build frontend assets
 RUN npm run build
