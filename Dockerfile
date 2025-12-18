@@ -1,5 +1,5 @@
-# Use PHP 8.3 with FPM and Alpine for smaller image size
-FROM php:8.3-fpm-alpine AS base
+# Use PHP 8.4 with FPM and Alpine for smaller image size
+FROM php:8.4-fpm-alpine AS base
 
 # Install system dependencies and PHP extensions
 RUN apk add --no-cache \
@@ -62,7 +62,7 @@ RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html/bootstrap/cache
 
 # Production stage
-FROM php:8.3-fpm-alpine
+FROM php:8.4-fpm-alpine
 
 # Install minimal dependencies for runtime
 RUN apk add --no-cache \
