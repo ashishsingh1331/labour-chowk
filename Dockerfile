@@ -27,11 +27,23 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Set working directory
 WORKDIR /var/www/html
 
-# Copy composer files
-COPY composer.json composer.lock ./
+# Copy composer files first (for better caching)
+COPY composer.json composer.lock* ./
+
+# Copy minimal app files needed for composer scripts
+COPY app/ app/
+COPY bootstrap/ bootstrap/
+COPY config/ config/
+COPY database/ database/
+COPY routes/ routes/
+COPY artisan ./
+
+# Create .env placeholder (composer scripts might need it)
+RUN touch .env
 
 # Install PHP dependencies (no dev dependencies for production)
-RUN composer install --no-dev --no-interaction --optimize-autoloader --no-scripts
+# Scripts will run and discover Laravel packages
+RUN composer install --no-dev --no-interaction --optimize-autoloader --prefer-dist
 
 # Copy package files
 COPY package.json package-lock.json* ./
@@ -39,7 +51,7 @@ COPY package.json package-lock.json* ./
 # Install Node dependencies (need dev deps for building)
 RUN npm ci
 
-# Copy application files
+# Copy remaining application files
 COPY . .
 
 # Build frontend assets
@@ -71,11 +83,13 @@ WORKDIR /var/www/html
 # Expose port 8000 (Laravel's default)
 EXPOSE 8000
 
-# Create entrypoint script
+# Create entrypoint script (as root, then we'll chown)
+USER root
 RUN echo '#!/bin/sh' > /entrypoint.sh && \
-    echo 'php artisan config:cache' >> /entrypoint.sh && \
-    echo 'php artisan route:cache' >> /entrypoint.sh && \
-    echo 'php artisan view:cache' >> /entrypoint.sh && \
+    echo 'set -e' >> /entrypoint.sh && \
+    echo 'php artisan config:cache || true' >> /entrypoint.sh && \
+    echo 'php artisan route:cache || true' >> /entrypoint.sh && \
+    echo 'php artisan view:cache || true' >> /entrypoint.sh && \
     echo 'php artisan storage:link || true' >> /entrypoint.sh && \
     echo 'exec php artisan serve --host=0.0.0.0 --port=8000' >> /entrypoint.sh && \
     chmod +x /entrypoint.sh
