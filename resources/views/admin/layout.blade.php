@@ -20,7 +20,7 @@
         </div>
 
         <div class="flex items-center gap-3">
-            <a href="{{ route('home') }}" 
+            <a href="{{ route('home') }}"
                class="text-sm font-medium text-gray-700 hover:text-gray-900 underline">
                 View Site
             </a>
