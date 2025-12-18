@@ -65,58 +65,43 @@
         </div>
     </form>
 
-    <section class="mt-6">
-        @if (!$areaId)
-            <div class="rounded border bg-white p-6 text-sm text-gray-700">
-                Select an area to see labourers available today.
-            </div>
-        @elseif ($results && $results->count() === 0)
-            <div class="rounded border bg-white p-6 text-sm text-gray-700">
-                No labourers are marked available today in this area.
-                Try another area or remove filters.
-            </div>
-        @elseif ($results)
+    @if ($results)
+        <section class="mt-6">
+            <h2 class="text-lg font-semibold mb-4">Filtered Results</h2>
+            @if ($results->count() === 0)
+                <div class="rounded border bg-white p-6 text-sm text-gray-700">
+                    No labourers are marked available today in this area.
+                    Try another area or remove filters.
+                </div>
+            @else
+                <div class="space-y-3">
+                    @foreach ($results as $labourer)
+                        @include('browse._labourer-card', ['labourer' => $labourer])
+                    @endforeach
+                </div>
+
+                <div class="mt-6">
+                    {{ $results->links() }}
+                </div>
+            @endif
+        </section>
+    @endif
+
+    <section class="mt-8">
+        <h2 class="text-lg font-semibold mb-4">All Available Today</h2>
+        @if ($allAvailable && $allAvailable->count() > 0)
             <div class="space-y-3">
-                @foreach ($results as $labourer)
-                    <article class="rounded border bg-white p-4">
-                        <div class="flex items-start gap-3">
-                            <div class="h-14 w-14 shrink-0 overflow-hidden rounded bg-gray-200">
-                                @if ($labourer->photo_path)
-                                    <img src="{{ asset('storage/'.$labourer->photo_path) }}" alt=""
-                                         class="h-full w-full object-cover" />
-                                @endif
-                            </div>
-
-                            <div class="min-w-0 flex-1">
-                                <div class="font-semibold truncate">{{ $labourer->full_name }}</div>
-                                @if ($labourer->skills->count())
-                                    <div class="mt-2 flex flex-wrap gap-1">
-                                        @foreach ($labourer->skills as $skill)
-                                            <span class="rounded-full border border-gray-300 bg-white px-2 py-0.5 text-xs text-gray-800">
-                                                {{ $skill->name }}
-                                            </span>
-                                        @endforeach
-                                    </div>
-                                @endif
-
-                                <div class="mt-3">
-                                    <a href="tel:{{ $labourer->phone_e164 }}"
-                                       class="inline-flex w-full items-center justify-center rounded bg-green-700 px-4 py-3 text-sm font-semibold text-white"
-                                       aria-label="Call {{ $labourer->full_name }}">
-                                        Call now
-                                    </a>
-                                    <div class="mt-1 text-xs text-gray-600">
-                                        Phone: {{ $labourer->phone_e164 }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
+                @foreach ($allAvailable as $labourer)
+                    @include('browse._labourer-card', ['labourer' => $labourer])
                 @endforeach
             </div>
 
             <div class="mt-6">
-                {{ $results->links() }}
+                {{ $allAvailable->links() }}
+            </div>
+        @else
+            <div class="rounded border bg-white p-6 text-sm text-gray-700">
+                No labourers are marked available today.
             </div>
         @endif
     </section>

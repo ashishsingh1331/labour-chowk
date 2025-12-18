@@ -31,7 +31,9 @@ class BrowseController extends Controller
             ->get());
 
         $results = null;
+        $allAvailable = null;
 
+        // Filtered results (when area is selected)
         if ($areaId) {
             $results = Labourer::query()
                 ->with(['skills', 'area'])
@@ -49,11 +51,24 @@ class BrowseController extends Controller
                 ->withQueryString();
         }
 
+        // General listing: all available today (shown below form)
+        $allAvailable = Labourer::query()
+            ->with(['skills', 'area'])
+            ->where('is_active', true)
+            ->whereHas('availabilities', function ($q2) use ($today) {
+                $q2->whereDate('date', $today)->where('status', 'available');
+            })
+            ->orderBy('area_id')
+            ->orderBy('full_name')
+            ->paginate(20, ['*'], 'all_page')
+            ->withQueryString();
+
         return view('browse.index', [
             'today' => $today,
             'areas' => $areas,
             'skills' => $skills,
             'results' => $results,
+            'allAvailable' => $allAvailable,
             'areaId' => $areaId,
             'skillIds' => array_map('intval', $skillIds),
             'q' => $q,
