@@ -7,6 +7,13 @@
             @if ($labourer->photo_path)
                 <img src="{{ asset('storage/'.$labourer->photo_path) }}" alt=""
                      class="h-full w-full object-cover" />
+            @else
+                @php
+                    $initials = strtoupper(substr($labourer->full_name, 0, 2));
+                    $avatarUrl = 'https://ui-avatars.com/api/?name=' . urlencode($labourer->full_name) . '&size=56&background=6366f1&color=ffffff&bold=true';
+                @endphp
+                <img src="{{ $avatarUrl }}" alt="{{ $labourer->full_name }}"
+                     class="h-full w-full object-cover" />
             @endif
         </div>
 
