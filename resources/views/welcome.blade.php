@@ -13,9 +13,25 @@
 </a>
 
 <header class="border-b bg-white">
-    <div class="mx-auto max-w-3xl px-4 py-4">
-        <h1 class="text-xl font-semibold">Labour Chowk</h1>
-        <p class="mt-1 text-sm text-gray-700">Daily Labour Finder</p>
+    <div class="mx-auto max-w-3xl px-4 py-3">
+        <div class="flex items-center justify-between gap-3 mb-2">
+            <h1 class="text-xl font-semibold">Labour Chowk</h1>
+            <nav class="flex items-center gap-3">
+                <a href="{{ route('browse') }}" class="text-sm font-medium text-gray-700 hover:text-gray-900 underline">
+                    Browse
+                </a>
+                @auth
+                    <a href="{{ route('admin.labourers.index') }}" class="text-sm font-medium text-gray-700 hover:text-gray-900 underline">
+                        Admin
+                    </a>
+                @else
+                    <a href="{{ route('login') }}" class="text-sm font-medium text-gray-700 hover:text-gray-900 underline">
+                        Admin Login
+                    </a>
+                @endauth
+            </nav>
+        </div>
+        <p class="text-sm text-gray-700">Daily Labour Finder</p>
     </div>
 </header>
 
